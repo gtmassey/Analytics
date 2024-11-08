@@ -8,5 +8,6 @@ class PotentiallyThresholdedRequestsPerHour extends Data
 {
     public function __construct(
         public int $remaining,
-    ) {}
+    ) {
+    }
 }

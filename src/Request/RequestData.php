@@ -39,7 +39,8 @@ class RequestData extends Data
         public int $limit = 10_000,
 
         public int $offset = 0,
-    ) {}
+    ) {
+    }
 
     /** @return array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[], dimensionFilter: BaseFilterExpression|null, returnPropertyQuota: bool, metricAggregations: int[]} */
     public function toArray(): array

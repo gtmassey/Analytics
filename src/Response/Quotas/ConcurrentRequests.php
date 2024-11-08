@@ -8,5 +8,6 @@ class ConcurrentRequests extends Data
 {
     public function __construct(
         public int $remaining,
-    ) {}
+    ) {
+    }
 }

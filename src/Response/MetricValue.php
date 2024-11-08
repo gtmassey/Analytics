@@ -8,5 +8,6 @@ class MetricValue extends Data
 {
     public function __construct(
         public string $value,
-    ) {}
+    ) {
+    }
 }
