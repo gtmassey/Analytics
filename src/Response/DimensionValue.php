@@ -8,6 +8,5 @@ class DimensionValue extends Data
 {
     public function __construct(
         public string $value,
-    ) {
-    }
+    ) {}
 }

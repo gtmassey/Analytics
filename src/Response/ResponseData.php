@@ -28,8 +28,7 @@ class ResponseData extends Data
         public Metadata $metadata,
         public ?PropertyQuota $propertyQuota,
         public string $kind,
-    ) {
-    }
+    ) {}
 
     public static function fromReportResponse(RunReportResponse $reportResponse): static
     {

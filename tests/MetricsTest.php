@@ -415,7 +415,7 @@ class MetricsTest extends TestCase
      */
     public function test_predefined_metrics(Closure $method, string $metric): void
     {
-        $metrics = new Metrics();
+        $metrics = new Metrics;
         $metrics = $method($metrics);
 
         $this->assertEquals(1, $metrics->count());

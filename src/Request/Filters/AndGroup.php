@@ -16,7 +16,7 @@ class AndGroup implements FilterExpressionContract
         Closure $expression,
         private readonly FilterExpressionField $field = FilterExpressionField::AND_GROUP,
     ) {
-        $this->expression = $expression(new FilterExpressionList());
+        $this->expression = $expression(new FilterExpressionList);
     }
 
     public function toRequest(): BaseFilterExpressionList

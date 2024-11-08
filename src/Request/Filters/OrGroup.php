@@ -16,7 +16,7 @@ class OrGroup implements FilterExpressionContract
         Closure $expression,
         private readonly FilterExpressionField $field = FilterExpressionField::OR_GROUP,
     ) {
-        $this->expression = $expression(new FilterExpressionList());
+        $this->expression = $expression(new FilterExpressionList);
     }
 
     public function toRequest(): BaseFilterExpressionList

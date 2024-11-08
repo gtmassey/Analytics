@@ -32,7 +32,7 @@ class AnalyticsTest extends TestCase
 {
     public function test_default_constructor(): void
     {
-        $this->assertInstanceOf(Analytics::class, new Analytics());
+        $this->assertInstanceOf(Analytics::class, new Analytics);
     }
 
     public function test_constructor_with_propertyid(): void

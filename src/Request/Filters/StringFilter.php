@@ -12,8 +12,7 @@ class StringFilter implements FilterContract
         private readonly string $value = '',
         private readonly bool $caseSensitive = false,
         private readonly FilterField $field = FilterField::STRING_FILTER,
-    ) {
-    }
+    ) {}
 
     public function toRequest(): BaseStringFilter
     {

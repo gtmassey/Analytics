@@ -83,7 +83,7 @@ class Analytics
      */
     public function dimensionFilter(Closure $callback): static
     {
-        $this->requestData->dimensionFilter = $callback(new FilterExpression());
+        $this->requestData->dimensionFilter = $callback(new FilterExpression);
 
         return $this;
     }
@@ -93,7 +93,7 @@ class Analytics
      */
     public function metricFilter(Closure $callback): static
     {
-        $this->requestData->metricFilter = $callback(new FilterExpression());
+        $this->requestData->metricFilter = $callback(new FilterExpression);
 
         return $this;
     }
