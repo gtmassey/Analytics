@@ -12,7 +12,8 @@ class FilterExpressionList
     public function __construct(
         /** @var Collection<int, FilterExpression> */
         private readonly Collection $expressions = new Collection,
-    ) {}
+    ) {
+    }
 
     /**
      * @param  Closure(FilterExpressionList): FilterExpressionList  $filterExpressionList
