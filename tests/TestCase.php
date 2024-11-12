@@ -20,10 +20,26 @@ abstract class TestCase extends Orchestra
     /**
      * @throws Exception
      */
-    public function getEnvironmentSetUp($app)
+    public function getEnvironmentSetUp($app): void
     {
+        //config()->set('analytics.property_id', 'test123');
+        //config()->set('analytics.credentials.array', $this->credentials());
+
         config()->set('analytics.property_id', 'test123');
-        config()->set('analytics.credentials.array', $this->credentials());
+
+        // Check if 'analytics.credentials' is the exact key expected by the Analytics library
+        config()->set('analytics.credentials', [
+            'type' => 'service_account',
+            'project_id' => 'bogus-project',
+            'private_key_id' => 'bogus-id',
+            'private_key' => 'bogus-key',
+            'client_email' => 'bogus-user@bogus-app.iam.gserviceaccount.com',
+            'client_id' => 'bogus-id',
+            'auth_uri' => 'https://accounts.google.com/o/oauth2/auth',
+            'token_uri' => 'https://accounts.google.com/o/oauth2/token',
+            'auth_provider_x509_cert_url' => 'https://www.googleapis.com/oauth2/v1/certs',
+            'client_x509_cert_url' => 'https://www.googleapis.com/robot/v1/metadata/x509/bogus-ser%40bogus-app.iam.gserviceaccount.com',
+        ]);
     }
 
     protected function credentials(): array
