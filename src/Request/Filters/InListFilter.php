@@ -10,8 +10,7 @@ class InListFilter implements FilterContract
         public array $values = [],
         public bool $caseSensitive = false,
         private readonly FilterField $field = FilterField::IN_LIST_FILTER,
-    ) {
-    }
+    ) {}
 
     public function field(): FilterField
     {

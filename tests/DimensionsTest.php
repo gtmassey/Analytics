@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 
 class DimensionsTest extends TestCase
 {
-    public function dimensionProvider(): Generator
+    public static function dimensionProvider(): Generator
     {
         yield 'achievementId' => [
             'method' => fn (Dimensions $dimensions) => $dimensions->achievementId(),

@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 
 class MetricsTest extends TestCase
 {
-    public function metricProvider(): Generator
+    public static function metricProvider(): Generator
     {
         yield 'active1DayUsers' => [
             'method' => fn (Metrics $metrics) => $metrics->active1DayUsers(),

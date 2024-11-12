@@ -17,7 +17,7 @@ use Mockery\MockInterface;
 
 class ReportTest extends TestCase
 {
-    public function reportProvider(): Generator
+    public static function reportProvider(): Generator
     {
         yield 'getTopEvents' => [
             'fakeResponse' => [

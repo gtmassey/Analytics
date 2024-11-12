@@ -8,6 +8,5 @@ class DimensionHeader extends Data
 {
     public function __construct(
         public string $name,
-    ) {
-    }
+    ) {}
 }

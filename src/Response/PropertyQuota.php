@@ -19,6 +19,5 @@ class PropertyQuota extends Data
         public ServerErrorsPerProjectPerHour $serverErrorsPerProjectPerHour,
         public PotentiallyThresholdedRequestsPerHour $potentiallyThresholdedRequestsPerHour,
         public TokensPerProjectPerHour $tokensPerProjectPerHour,
-    ) {
-    }
+    ) {}
 }
