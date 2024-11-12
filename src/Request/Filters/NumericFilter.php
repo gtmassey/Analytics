@@ -13,7 +13,8 @@ class NumericFilter implements FilterContract
         private readonly float|int $value = 0,
         private readonly NumericValueType $valueType = NumericValueType::INTEGER,
         private readonly FilterField $field = FilterField::NUMERIC_FILTER,
-    ) {}
+    ) {
+    }
 
     public function toRequest(): BaseNumericFilter
     {

@@ -12,7 +12,8 @@ class BetweenFilter implements FilterContract
         private readonly float|int $max = 0,
         private readonly NumericValueType $valueType = NumericValueType::INTEGER,
         private readonly FilterField $field = FilterField::BETWEEN_FILTER,
-    ) {}
+    ) {
+    }
 
     public function toRequest(): BaseBetweenFilter
     {

@@ -17,5 +17,6 @@ class Total extends Data
         public DataCollection $dimensionValues,
         #[DataCollectionOf(MetricValue::class)]
         public DataCollection $metricValues,
-    ) {}
+    ) {
+    }
 }
