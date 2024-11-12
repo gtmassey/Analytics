@@ -81,7 +81,7 @@ class ReportTest extends TestCase
             ],
             'assertRequest' => function (array $reportRequest) {
                 /** @var array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[]} $reportRequest */
-                self::assertEquals('properties/' . 'test123', $reportRequest['property']);
+                self::assertEquals('properties/'.'test123', $reportRequest['property']);
 
                 self::assertCount(1, $reportRequest['dateRanges']);
                 self::assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
@@ -95,7 +95,7 @@ class ReportTest extends TestCase
 
                 return true;
             },
-            'reportCall' => fn() => Analytics::getTopEvents(),
+            'reportCall' => fn () => Analytics::getTopEvents(),
         ];
 
         yield 'getUserAcquisitionOverview' => [
@@ -170,7 +170,7 @@ class ReportTest extends TestCase
             ],
             'assertRequest' => function (array $reportRequest) {
                 /** @var array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[]} $reportRequest */
-                self::assertEquals('properties/' . 'test123', $reportRequest['property']);
+                self::assertEquals('properties/'.'test123', $reportRequest['property']);
 
                 self::assertCount(1, $reportRequest['dateRanges']);
                 self::assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
@@ -184,7 +184,7 @@ class ReportTest extends TestCase
 
                 return true;
             },
-            'reportCall' => fn() => Analytics::getUserAcquisitionOverview(),
+            'reportCall' => fn () => Analytics::getUserAcquisitionOverview(),
         ];
 
         yield 'getTopPages' => [
@@ -247,7 +247,7 @@ class ReportTest extends TestCase
             ],
             'assertRequest' => function (array $reportRequest) {
                 /** @var array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[]} $reportRequest */
-                self::assertEquals('properties/' . 'test123', $reportRequest['property']);
+                self::assertEquals('properties/'.'test123', $reportRequest['property']);
 
                 self::assertCount(1, $reportRequest['dateRanges']);
                 self::assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
@@ -261,7 +261,7 @@ class ReportTest extends TestCase
 
                 return true;
             },
-            'reportCall' => fn() => Analytics::getTopPages(),
+            'reportCall' => fn () => Analytics::getTopPages(),
         ];
 
         yield 'getUserEngagement' => [
@@ -311,7 +311,7 @@ class ReportTest extends TestCase
             ],
             'assertRequest' => function (array $reportRequest) {
                 /** @var array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[]} $reportRequest */
-                self::assertEquals('properties/' . 'test123', $reportRequest['property']);
+                self::assertEquals('properties/'.'test123', $reportRequest['property']);
 
                 self::assertCount(1, $reportRequest['dateRanges']);
                 self::assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
@@ -325,7 +325,7 @@ class ReportTest extends TestCase
 
                 return true;
             },
-            'reportCall' => fn() => Analytics::getUserEngagement(),
+            'reportCall' => fn () => Analytics::getUserEngagement(),
         ];
     }
 
