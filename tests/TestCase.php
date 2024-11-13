@@ -28,8 +28,6 @@ abstract class TestCase extends Orchestra
 
     /**
      * @return array<string, string>
-	 *
-	 *
      */
     protected function credentials(): array
     {
