@@ -331,8 +331,8 @@ class ReportTest extends TestCase
 
     /**
      * @dataProvider reportProvider
-	 *
-	 * @param array<string, mixed> $fakeResponse
+     *
+     * @param  array<string, mixed>  $fakeResponse
      */
     public function test_reports(array $fakeResponse, Closure $assertRequest, Closure $reportCall): void
     {

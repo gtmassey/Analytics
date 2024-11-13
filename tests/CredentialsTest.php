@@ -20,9 +20,9 @@ class CredentialsTest extends TestCase
         $this->disk = Storage::fake('testing-storage');
     }
 
-	/**
-	 * @param array<string, string> $credentials
-	 */
+    /**
+     * @param  array<string, string>  $credentials
+     */
     private function setupCredentialsFile(array $credentials = [], string $fileName = 'test-credentials'): string
     {
         $encodedCredentials = json_encode($credentials + $this->credentials());
@@ -37,7 +37,8 @@ class CredentialsTest extends TestCase
     }
 
     /**
-	 * @return array<string, string>|null
+     * @return array<string, string>|null
+     *
      * @throws InvalidCredentialsJsonStringException
      * @throws InvalidCredentialsFileException
      * @throws InvalidCredentialsArrayException

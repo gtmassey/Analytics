@@ -11,7 +11,8 @@ use Illuminate\Filesystem\Filesystem;
 class Credentials
 {
     /**
-	 * @return array<string, string>|null
+     * @return array<string, string>|null
+     *
      * @throws InvalidCredentialsJsonStringException
      * @throws InvalidCredentialsFileException
      * @throws InvalidCredentialsArrayException
@@ -34,7 +35,8 @@ class Credentials
     }
 
     /**
-	 * @return array<string, string>
+     * @return array<string, string>
+     *
      * @throws InvalidCredentialsFileException
      */
     private function credentialsFile(mixed $file): array
@@ -59,7 +61,8 @@ class Credentials
     }
 
     /**
-	 * @return array<string, string>
+     * @return array<string, string>
+     *
      * @throws InvalidCredentialsJsonStringException
      */
     private function credentialsJson(mixed $json): array
@@ -78,7 +81,8 @@ class Credentials
     }
 
     /**
-	 * @return array<string, string>
+     * @return array<string, string>
+     *
      * @throws InvalidCredentialsArrayException
      */
     private function credentialsArray(): array
