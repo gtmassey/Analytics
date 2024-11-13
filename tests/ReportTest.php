@@ -17,7 +17,7 @@ use Mockery\MockInterface;
 
 class ReportTest extends TestCase
 {
-    public function reportProvider(): Generator
+    public static function reportProvider(): Generator
     {
         yield 'getTopEvents' => [
             'fakeResponse' => [
@@ -81,17 +81,17 @@ class ReportTest extends TestCase
             ],
             'assertRequest' => function (array $reportRequest) {
                 /** @var array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[]} $reportRequest */
-                $this->assertEquals('properties/'.'test123', $reportRequest['property']);
+                self::assertEquals('properties/'.'test123', $reportRequest['property']);
 
-                $this->assertCount(1, $reportRequest['dateRanges']);
-                $this->assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
-                $this->assertEquals('2022-11-21', $reportRequest['dateRanges'][0]->getEndDate());
+                self::assertCount(1, $reportRequest['dateRanges']);
+                self::assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
+                self::assertEquals('2022-11-21', $reportRequest['dateRanges'][0]->getEndDate());
 
-                $this->assertCount(1, $reportRequest['dimensions']);
-                $this->assertEquals('eventName', $reportRequest['dimensions'][0]->getName());
+                self::assertCount(1, $reportRequest['dimensions']);
+                self::assertEquals('eventName', $reportRequest['dimensions'][0]->getName());
 
-                $this->assertCount(1, $reportRequest['metrics']);
-                $this->assertEquals('eventCount', $reportRequest['metrics'][0]->getName());
+                self::assertCount(1, $reportRequest['metrics']);
+                self::assertEquals('eventCount', $reportRequest['metrics'][0]->getName());
 
                 return true;
             },
@@ -170,17 +170,17 @@ class ReportTest extends TestCase
             ],
             'assertRequest' => function (array $reportRequest) {
                 /** @var array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[]} $reportRequest */
-                $this->assertEquals('properties/'.'test123', $reportRequest['property']);
+                self::assertEquals('properties/'.'test123', $reportRequest['property']);
 
-                $this->assertCount(1, $reportRequest['dateRanges']);
-                $this->assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
-                $this->assertEquals('2022-11-21', $reportRequest['dateRanges'][0]->getEndDate());
+                self::assertCount(1, $reportRequest['dateRanges']);
+                self::assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
+                self::assertEquals('2022-11-21', $reportRequest['dateRanges'][0]->getEndDate());
 
-                $this->assertCount(1, $reportRequest['dimensions']);
-                $this->assertEquals('firstUserDefaultChannelGroup', $reportRequest['dimensions'][0]->getName());
+                self::assertCount(1, $reportRequest['dimensions']);
+                self::assertEquals('firstUserDefaultChannelGroup', $reportRequest['dimensions'][0]->getName());
 
-                $this->assertCount(1, $reportRequest['metrics']);
-                $this->assertEquals('sessions', $reportRequest['metrics'][0]->getName());
+                self::assertCount(1, $reportRequest['metrics']);
+                self::assertEquals('sessions', $reportRequest['metrics'][0]->getName());
 
                 return true;
             },
@@ -247,17 +247,17 @@ class ReportTest extends TestCase
             ],
             'assertRequest' => function (array $reportRequest) {
                 /** @var array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[]} $reportRequest */
-                $this->assertEquals('properties/'.'test123', $reportRequest['property']);
+                self::assertEquals('properties/'.'test123', $reportRequest['property']);
 
-                $this->assertCount(1, $reportRequest['dateRanges']);
-                $this->assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
-                $this->assertEquals('2022-11-21', $reportRequest['dateRanges'][0]->getEndDate());
+                self::assertCount(1, $reportRequest['dateRanges']);
+                self::assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
+                self::assertEquals('2022-11-21', $reportRequest['dateRanges'][0]->getEndDate());
 
-                $this->assertCount(1, $reportRequest['dimensions']);
-                $this->assertEquals('pageTitle', $reportRequest['dimensions'][0]->getName());
+                self::assertCount(1, $reportRequest['dimensions']);
+                self::assertEquals('pageTitle', $reportRequest['dimensions'][0]->getName());
 
-                $this->assertCount(1, $reportRequest['metrics']);
-                $this->assertEquals('sessions', $reportRequest['metrics'][0]->getName());
+                self::assertCount(1, $reportRequest['metrics']);
+                self::assertEquals('sessions', $reportRequest['metrics'][0]->getName());
 
                 return true;
             },
@@ -311,17 +311,17 @@ class ReportTest extends TestCase
             ],
             'assertRequest' => function (array $reportRequest) {
                 /** @var array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[]} $reportRequest */
-                $this->assertEquals('properties/'.'test123', $reportRequest['property']);
+                self::assertEquals('properties/'.'test123', $reportRequest['property']);
 
-                $this->assertCount(1, $reportRequest['dateRanges']);
-                $this->assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
-                $this->assertEquals('2022-11-21', $reportRequest['dateRanges'][0]->getEndDate());
+                self::assertCount(1, $reportRequest['dateRanges']);
+                self::assertEquals('2022-10-22', $reportRequest['dateRanges'][0]->getStartDate());
+                self::assertEquals('2022-11-21', $reportRequest['dateRanges'][0]->getEndDate());
 
-                $this->assertCount(4, $reportRequest['metrics']);
-                $this->assertEquals('averageSessionDuration', $reportRequest['metrics'][0]->getName());
-                $this->assertEquals('engagedSessions', $reportRequest['metrics'][1]->getName());
-                $this->assertEquals('sessionsPerUser', $reportRequest['metrics'][2]->getName());
-                $this->assertEquals('sessions', $reportRequest['metrics'][3]->getName());
+                self::assertCount(4, $reportRequest['metrics']);
+                self::assertEquals('averageSessionDuration', $reportRequest['metrics'][0]->getName());
+                self::assertEquals('engagedSessions', $reportRequest['metrics'][1]->getName());
+                self::assertEquals('sessionsPerUser', $reportRequest['metrics'][2]->getName());
+                self::assertEquals('sessions', $reportRequest['metrics'][3]->getName());
 
                 return true;
             },
@@ -331,6 +331,8 @@ class ReportTest extends TestCase
 
     /**
      * @dataProvider reportProvider
+     *
+     * @param  array<string, mixed>  $fakeResponse
      */
     public function test_reports(array $fakeResponse, Closure $assertRequest, Closure $reportCall): void
     {

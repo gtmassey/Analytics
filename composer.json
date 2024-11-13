@@ -7,33 +7,37 @@
             "name": "Garrett Massey",
             "email": "contact@garrettmassey.net",
             "role": "Creator"
+        },
+        {
+            "name": "Vytautas Smilingis",
+            "role": "Contributor"
         }
     ],
     "homepage": "https://github.com/gtmassey/laravel-analytics/",
     "keywords": [
         "Laravel",
         "Analytics",
-	"Google Analytics"
+	    "Google Analytics"
     ],
     "require": {
-        "php": "^8.1",
-        "google/analytics-data": "^0.9.0",
-        "gtmassey/period": "^1.0",
-        "illuminate/support": "^9.0|^10.0",
+        "php": "^8.1|^8.2|^8.3",
+        "google/analytics-data": "^v0.9.0",
+        "gtmassey/period": "^1.2.0",
+        "illuminate/support": "^10.0|^11.0",
         "nesbot/carbon": "^2.63",
-        "spatie/laravel-data": "^2.0",
+        "spatie/laravel-data": "^3.12",
         "spatie/laravel-package-tools": "^1.13"
     },
     "require-dev": {
+        "larastan/larastan": "^2.9",
         "laravel/pint": "^1.6",
-        "nunomaduro/collision": "^6.4",
-        "nunomaduro/larastan": "^2.4.1",
-        "orchestra/testbench": "^7.15|^8.0.3",
+        "nunomaduro/collision": "^7.11.0|^v8.5.0",
+        "orchestra/testbench": "^v8.27.2|^9.5",
         "phpstan/extension-installer": "^1.2",
         "phpstan/phpstan-deprecation-rules": "^1.1.2",
         "phpstan/phpstan-mockery": "^1.1.1",
         "phpstan/phpstan-phpunit": "^1.3.7",
-        "phpunit/phpunit": "^9.6.3",
+        "phpunit/phpunit": "^10",
         "rregeer/phpunit-coverage-check": "^0.3.1"
     },
     "autoload": {

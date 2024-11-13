@@ -16,7 +16,7 @@ class NotExpression implements FilterExpressionContract
         Closure $expression,
         private readonly FilterExpressionField $field = FilterExpressionField::NOT_EXPRESSION,
     ) {
-        $this->expression = $expression(new FilterExpression());
+        $this->expression = $expression(new FilterExpression);
     }
 
     public function toRequest(): BaseFilterExpression

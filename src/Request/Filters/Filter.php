@@ -85,6 +85,9 @@ class Filter implements FilterExpressionContract
         return $this;
     }
 
+    /**
+     * @param  list<string>  $values
+     */
     public function inList(array $values, bool $caseSensitive = false): static
     {
         $this->expression = new InListFilter(

@@ -12,7 +12,7 @@ class Metrics
 
     public function __construct()
     {
-        $this->metrics = new Collection();
+        $this->metrics = new Collection;
     }
 
     public function count(): int

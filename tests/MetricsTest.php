@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 
 class MetricsTest extends TestCase
 {
-    public function metricProvider(): Generator
+    public static function metricProvider(): Generator
     {
         yield 'active1DayUsers' => [
             'method' => fn (Metrics $metrics) => $metrics->active1DayUsers(),
@@ -415,7 +415,7 @@ class MetricsTest extends TestCase
      */
     public function test_predefined_metrics(Closure $method, string $metric): void
     {
-        $metrics = new Metrics();
+        $metrics = new Metrics;
         $metrics = $method($metrics);
 
         $this->assertEquals(1, $metrics->count());

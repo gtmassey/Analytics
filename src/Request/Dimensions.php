@@ -12,7 +12,7 @@ class Dimensions
 
     public function __construct()
     {
-        $this->dimensions = new Collection();
+        $this->dimensions = new Collection;
     }
 
     public function count(): int

@@ -22,11 +22,11 @@ class RequestData extends Data
     public function __construct(
         public string $propertyId,
         /** @var Collection<int, DateRange> */
-        public Collection $dateRanges = new Collection(),
+        public Collection $dateRanges = new Collection,
         /** @var Collection<int, Metric> */
-        public Collection $metrics = new Collection(),
+        public Collection $metrics = new Collection,
         /** @var Collection<int, Dimension> */
-        public Collection $dimensions = new Collection(),
+        public Collection $dimensions = new Collection,
 
         public ?FilterExpression $dimensionFilter = null,
 
@@ -39,8 +39,7 @@ class RequestData extends Data
         public int $limit = 10_000,
 
         public int $offset = 0,
-    ) {
-    }
+    ) {}
 
     /** @return array{property: string, dateRanges: DateRange[], dimensions: Dimension[], metrics: Metric[], dimensionFilter: BaseFilterExpression|null, returnPropertyQuota: bool, metricAggregations: int[]} */
     public function toArray(): array

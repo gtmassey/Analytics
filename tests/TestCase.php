@@ -20,12 +20,15 @@ abstract class TestCase extends Orchestra
     /**
      * @throws Exception
      */
-    public function getEnvironmentSetUp($app)
+    public function getEnvironmentSetUp($app): void
     {
         config()->set('analytics.property_id', 'test123');
         config()->set('analytics.credentials.array', $this->credentials());
     }
 
+    /**
+     * @return array<string, string>
+     */
     protected function credentials(): array
     {
         return [

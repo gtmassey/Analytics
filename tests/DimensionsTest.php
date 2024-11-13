@@ -10,7 +10,7 @@ use Illuminate\Support\Collection;
 
 class DimensionsTest extends TestCase
 {
-    public function dimensionProvider(): Generator
+    public static function dimensionProvider(): Generator
     {
         yield 'achievementId' => [
             'method' => fn (Dimensions $dimensions) => $dimensions->achievementId(),
@@ -920,7 +920,7 @@ class DimensionsTest extends TestCase
      */
     public function test_predefined_dimensions(Closure $method, string $dimension): void
     {
-        $dimensions = new Dimensions();
+        $dimensions = new Dimensions;
         $dimensions = $method($dimensions);
 
         $this->assertEquals(1, $dimensions->count());
