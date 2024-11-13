@@ -6,6 +6,9 @@ use Google\Analytics\Data\V1beta\Filter\InListFilter as BaseInListFilter;
 
 class InListFilter implements FilterContract
 {
+	/**
+	 * @param list<string> $values
+	 */
     public function __construct(
         public array $values = [],
         public bool $caseSensitive = false,

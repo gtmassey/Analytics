@@ -26,6 +26,9 @@ abstract class TestCase extends Orchestra
         config()->set('analytics.credentials.array', $this->credentials());
     }
 
+	/**
+	 * @return array<string, string>
+	 */
     protected function credentials(): array
     {
         return [
