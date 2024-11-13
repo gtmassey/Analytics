@@ -9,6 +9,5 @@ class Metadata extends Data
     public function __construct(
         public string $currencyCode,
         public string $timeZone,
-    ) {
-    }
+    ) {}
 }

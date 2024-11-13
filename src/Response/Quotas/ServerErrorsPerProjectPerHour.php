@@ -8,6 +8,5 @@ class ServerErrorsPerProjectPerHour extends Data
 {
     public function __construct(
         public int $remaining,
-    ) {
-    }
+    ) {}
 }
