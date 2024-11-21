@@ -7,6 +7,7 @@ use Google\Analytics\Data\V1beta\Dimension;
 use Google\Analytics\Data\V1beta\FilterExpression as BaseFilterExpression;
 use Google\Analytics\Data\V1beta\Metric;
 use Google\Analytics\Data\V1beta\MetricAggregation;
+use Google\Analytics\Data\V1beta\OrderBy;
 use Gtmassey\LaravelAnalytics\Request\Filters\FilterExpression;
 use Illuminate\Support\Collection;
 use Spatie\LaravelData\Data;
@@ -31,6 +32,8 @@ class RequestData extends Data
         public ?FilterExpression $dimensionFilter = null,
 
         public ?FilterExpression $metricFilter = null,
+        /** @var Collection<int, OrderBy> */
+        public Collection $orderBys = new Collection(),
 
         public bool $returnPropertyQuota = true,
 
@@ -51,6 +54,7 @@ class RequestData extends Data
             'metrics' => $this->metrics->unique()->all(),
             'dimensionFilter' => $this->dimensionFilter?->toRequest(),
             'metricFilter' => $this->metricFilter?->toRequest(),
+            'orderBys' => $this->orderBys->all(),
             'returnPropertyQuota' => $this->returnPropertyQuota,
             'metricAggregations' => $this->useTotals ? [MetricAggregation::TOTAL] : [],
             'limit' => $this->limit,

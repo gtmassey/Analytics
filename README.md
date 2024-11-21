@@ -19,6 +19,7 @@ Methods currently return an instance of `Gtmassey\LaravelAnalytics\ResponseData`
 * [Usage](#usage)
     * [Query Builder](#querybuilder)
     * [Filtering](#filtering)
+    * [Ordering](#ordering)
     * [Default Reports](#defaultreports)
 * [Extensibility](#extensibility)
     * [Custom Metrics And Dimensions](#custommetrics)
@@ -378,6 +379,74 @@ $report = Analytics::query()
                 metricsCallback: fn(Metrics $metrics) => $metrics->sessions(),
                 filter: fn(Filter $filter) => $filter->lessThanInt(100)
             )
+        )
+    )
+    ->run();
+```
+
+### <a name="ordering">Ordering:</a>
+
+You can order the results by a metric or dimension by using the `setOrderBys()` method. This method accepts a callback that receives an `OrderBy` instance. You can then use the `OrderBy` instance to order the results using these methods:
+
+* `metricDesc()` - Order by a metric in descending order.
+* `metricAsc()` - Order by a metric in ascending order.
+* `alphanumericDimensionDesc()` - Order by a dimension in descending order (case-sensitive).
+* `alphanumericDimensionAsc()` - Order by a dimension in ascending order (case-sensitive).
+* `caseInsensitiveAlphanumericDimensionDesc()` - Order by a dimension in descending order (case-insensitive).
+* `caseInsensitiveAlphanumericDimensionAsc()` - Order by a dimension in ascending order (case-insensitive).
+* `numericDimensionDesc()` - Order by a dimension in descending order (numeric).
+* `numericDimensionAsc()` - Order by a dimension in ascending order (numeric).
+
+##### Example:
+```php
+use Gtmassey\LaravelAnalytics\Request\Dimensions;
+use Gtmassey\LaravelAnalytics\Request\Metrics;
+use Gtmassey\LaravelAnalytics\Analytics;
+use Gtmassey\Period\Period;
+
+$report = Analytics::query()
+    ->setMetrics(fn(Metrics $metrics) => $metrics->sessions())
+    ->setDimensions(fn(Dimensions $dimensions) => $dimensions->browser())
+    ->forPeriod(Period::defaultPeriod())
+    ->setOrderBys(fn(OrderBy $orderBy) => $orderBy
+    	// Order by sessions in descending order
+        ->metricDesc(
+            metricsCallback: fn(Metrics $metrics) => $metrics->sessions(),
+        )
+
+        // Order by sessions in ascending order
+        ->metricAsc(
+            metricsCallback: fn(Metrics $metrics) => $metrics->sessions(),
+        )
+
+        // Order by browser in descending order (case-sensitive)
+        ->alphanumericDimensionDesc(
+            dimensionsCallback: fn(Dimensions $dimensions) => $dimensions->pageTitle(),
+        )
+
+        // Order by browser in ascending order (case-sensitive)
+        ->alphanumericDimensionAsc(
+            dimensionsCallback: fn(Dimensions $dimensions) => $dimensions->pageTitle(),
+        )
+
+        // Order by browser in descending order (case-insensitive)
+        ->caseInsensitiveAlphanumericDimensionDesc(
+            dimensionsCallback: fn(Dimensions $dimensions) => $dimensions->pageTitle(),
+        )
+
+        // Order by browser in ascending order (case-insensitive)
+        ->caseInsensitiveAlphanumericDimensionAsc(
+            dimensionsCallback: fn(Dimensions $dimensions) => $dimensions->pageTitle(),
+        )
+
+        // Order by browser in descending order (numeric)
+        ->numericDimensionDesc(
+            dimensionsCallback: fn(Dimensions $dimensions) => $dimensions->pageTitle(),
+        )
+
+        // Order by browser in ascending order (numeric)
+        ->numericDimensionAsc(
+            dimensionsCallback: fn(Dimensions $dimensions) => $dimensions->pageTitle(),
         )
     )
     ->run();

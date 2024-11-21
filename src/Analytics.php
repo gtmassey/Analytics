@@ -11,6 +11,7 @@ use Gtmassey\LaravelAnalytics\Reports\Reports;
 use Gtmassey\LaravelAnalytics\Request\Dimensions;
 use Gtmassey\LaravelAnalytics\Request\Filters\FilterExpression;
 use Gtmassey\LaravelAnalytics\Request\Metrics;
+use Gtmassey\LaravelAnalytics\Request\OrderBy;
 use Gtmassey\LaravelAnalytics\Request\RequestData;
 use Gtmassey\LaravelAnalytics\Response\ResponseData;
 use Gtmassey\Period\Period;
@@ -105,6 +106,15 @@ class Analytics
             'end_date' => $period->endDate->toDateString(),
         ]);
         $this->requestData->dateRanges->push($dateRange);
+
+        return $this;
+    }
+
+    public function setOrderBys(Closure $callback): static
+    {
+        /** @var OrderBy $orderBy */
+        $orderBy = $callback(resolve(OrderBy::class));
+        $this->requestData->orderBys->push(...$orderBy->getOrderBys());
 
         return $this;
     }
